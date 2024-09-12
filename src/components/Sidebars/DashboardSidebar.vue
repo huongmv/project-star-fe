@@ -138,33 +138,16 @@
 
 </template>
 
-<script>
+<script lang="ts" setup>
 
-	export default ({
-		props: {
-			// Sidebar collapsed status.
-			sidebarCollapsed: {
-				type: Boolean,
-				default: false,
-			},
-			
-			// Main sidebar color.
-			sidebarColor: {
-				type: String,
-				default: "primary",
-			},
-			
-			// Main sidebar theme : light, white, dark.
-			sidebarTheme: {
-				type: String,
-				default: "light",
-			},
-		},
-		data() {
-			return {
-				// sidebarCollapsedModel: this.sidebarCollapsed,
-			}
-		},
-	})
-
+interface props {
+    sidebarCollapsed: boolean,
+    sidebarColor: string,
+	sidebarTheme: string
+}
+const propsData = withDefaults(defineProps<props>(), {
+    sidebarCollapsed: false,
+    sidebarColor: 'primary',
+	sidebarTheme: 'light',
+});
 </script>

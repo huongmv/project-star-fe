@@ -6,7 +6,7 @@
 	<div>
 
 		<!-- Dashboard Layout -->
-		<a-layout class="layout-dashboard" id="layout-dashboard" :class="[navbarFixed ? 'navbar-fixed' : '', ! sidebarCollapsed ? 'has-sidebar' : '', layoutClass]">
+		<a-layout class="layout-dashboard" id="layout-dashboard" :class="[navbarFixed ? 'navbar-fixed' : '', !sidebarCollapsed ? 'has-sidebar' : '', layoutClass]">
 			
 			<!-- Main Sidebar -->
 			<DashboardSidebar

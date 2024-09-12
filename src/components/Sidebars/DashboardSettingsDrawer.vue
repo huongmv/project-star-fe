@@ -45,6 +45,7 @@
 				<a-radio-group button-style="solid" v-model="sidebarThemeModel" @change="$emit('updateSidebarTheme', $event.target.value)" defaultValue="primary">
 					<a-radio-button value="light">TRANSPARENT</a-radio-button>
 					<a-radio-button value="white">WHITE</a-radio-button>
+					<a-radio-button value="dark">DARK</a-radio-button>
 				</a-radio-group>
 			</div>
 			<div class="navbar-fixed">
