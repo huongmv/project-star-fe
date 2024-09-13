@@ -8,12 +8,12 @@
 		:closable="false"
 		:visible="showSettingsDrawer"
 		width="360"
-		:getContainer="() => wrapper"
-		@close="$emit('toggleSettingsDrawer', false)"
+		
+		@close="toggleSettingsDrawer(false)"
 	>
 
 		<!-- Settings Drawer Close Button -->
-		<a-button type="link" class="btn-close" @click="$emit('toggleSettingsDrawer', false)">
+		<a-button type="link" class="btn-close" @click="toggleSettingsDrawer(false)">
 			<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">
 				<g id="close" transform="translate(0.75 0.75)">
 					<path id="Path" d="M7.5,0,0,7.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
@@ -30,7 +30,7 @@
 			<hr>
 			<div class="sidebar-color">
 				<h6>Sidebar Color</h6>
-				<a-radio-group v-model="sidebarColorModel" @change="$emit('updateSidebarColor', $event.target.value)" defaultValue="primary">
+				<a-radio-group v-model="sidebarColorModel" @change="updateSidebarColor($event.target.value)" defaultValue="primary">
 					<a-radio-button value="primary" class="bg-primary"></a-radio-button>
 					<a-radio-button value="secondary" class="bg-secondary"></a-radio-button>
 					<a-radio-button value="success" class="bg-success"></a-radio-button>
@@ -42,15 +42,23 @@
 			<div class="sidenav-type">
 				<h6>Sidenav Type</h6>
 				<p>Choose between 2 different sidenav types.</p>
-				<a-radio-group button-style="solid" v-model="sidebarThemeModel" @change="$emit('updateSidebarTheme', $event.target.value)" defaultValue="primary">
+				<a-radio-group button-style="solid" v-model="sidebarThemeModel" @change="updateSidebarTheme($event.target.value)" defaultValue="primary">
 					<a-radio-button value="light">TRANSPARENT</a-radio-button>
 					<a-radio-button value="white">WHITE</a-radio-button>
 					<a-radio-button value="dark">DARK</a-radio-button>
 				</a-radio-group>
 			</div>
 			<div class="navbar-fixed">
-				<h6>Navbar Fixed</h6>
-				<a-switch default-checked v-model="navbarFixedModel" @change="$emit('toggleNavbarPosition', navbarFixedModel)" />
+				<h6>{{$t('message.000001') }}</h6>
+				<a-switch default-checked v-model:checked="navbarFixedModel" @change="toggleNavbar(navbarFixedModel)" />
+			</div>
+			<div class="navbar-fixed">
+				<h6>Dark theme <i class="far fa-moon"></i></h6>
+				<!-- <a-switch default-checked v-model="navbarFixedModel" @change="$emit('toggleNavbarPosition', navbarFixedModel)" /> -->
+				<a-switch v-model:checked="navbarDarkModel" @change="toggleDarkModel">
+					<template #checkedChildren><i class="fas fa-sun"></i></template>
+					<template #unCheckedChildren><i class="far fa-moon"></i></template>
+				</a-switch>
 			</div>
 			<div class="download">
 				<a-button type="dark" href="https://www.creative-tim.com/product/muse-vue-ant-design-dashboard" block target="_blank">FREE DOWNLOAD</a-button>
@@ -80,7 +88,77 @@
 	<!-- / Settings Drawer -->
 
 </template>
+<script lang="ts" setup>
+import { reactive, ref, onMounted } from 'vue'
+import cookiesConFig from "@/utils/CookiesConfig";
+import {
+  DARK_TYPE,
+  SIDEBAR_COLOR,
+  SIDEBAR_THEME,
+  NAVBAR_FIXED,
+  NAVBAR_DARK_MODEL,
+  SIDEBAR_COLOR_MODEL,
+  SIDEBAR_THEME_MODEL,
+  NAVBAR_FIXED_MODEL
+  
+} from "@/const/ConstCookies";
+const emits = defineEmits(["darkModel","toggleNavbarPosition", "updateSidebarTheme", "updateSidebarColor", "toggleSettingsDrawer"])
 
+interface props {
+    showSettingsDrawer: boolean,
+    sidebarColor: string,
+	sidebarTheme: string,
+	navbarFixed: boolean,
+	rtl: boolean,
+}
+const propsData = withDefaults(defineProps<props>(), {
+    sidebarCollapsed: false,
+    sidebarColor: 'primary',
+	sidebarTheme: 'light',
+	navbarFixed: false,
+});
+
+const sidebarColorModel = ref('')
+const sidebarThemeModel = ref('')
+const navbarFixedModel = ref(false)
+const navbarDarkModel = ref(false)
+
+onMounted(()=> {
+	modelConfig()
+})
+const toggleDarkModel = () => {
+	cookiesConFig.setCokies(NAVBAR_DARK_MODEL, navbarDarkModel.value)
+	if(navbarDarkModel.value) {
+		emits('darkModel', 'dark-mode')
+	} else {
+		emits('darkModel', '')
+	}
+}
+const toggleNavbar = (val:any) => {
+	cookiesConFig.setCokies(NAVBAR_FIXED_MODEL, val)
+	emits('toggleNavbarPosition', val)
+}
+
+const updateSidebarTheme = (val:any) => {
+	emits('updateSidebarTheme', val)
+}
+
+const updateSidebarColor = (val:any) => {
+	emits('updateSidebarColor', val)
+}
+
+const toggleSettingsDrawer = (val:any) => {
+	emits('toggleSettingsDrawer', val)
+}
+const modelConfig = () => {
+
+	sidebarColorModel.value = cookiesConFig.getCokies(SIDEBAR_COLOR);
+	sidebarThemeModel.value = cookiesConFig.getCokies(SIDEBAR_THEME);
+	navbarFixedModel.value = cookiesConFig.getCokiesBoolean(NAVBAR_FIXED_MODEL);
+    navbarDarkModel.value = cookiesConFig.getCokiesBoolean(NAVBAR_DARK_MODEL);
+};
+</script>
+<!-- 
 <script>
 
 	export default ({
@@ -136,4 +214,4 @@
 		},
 	})
 
-</script>
+</script> -->

@@ -34,9 +34,8 @@
 			<p class="text-center my-25 font-semibold text-muted">Or</p>
 			<a-form
 				id="components-form-demo-normal-login"
-				:form="form"
+				form="normal_login"
 				class="login-form"
-				@submit="handleSubmit"
 			>
 				<a-form-item class="mb-10">
 					<a-input
@@ -95,7 +94,7 @@
 	</div>
 </template>
 
-<script>
+<!-- <script>
 
 	export default ({
 		data() {
@@ -119,7 +118,7 @@
 		},
 	})
 
-</script>
+</script> -->
 
 <style lang="scss">
 </style>

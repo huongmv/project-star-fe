@@ -16,7 +16,7 @@
 				<!-- Sign In Form -->
 				<a-form
 					id="components-form-demo-normal-login"
-					:form="form"
+					form="normal_login"
 					class="login-form"
 					@submit="handleSubmit"
 					:hideRequiredMark="true"
@@ -60,8 +60,14 @@
 		
 	</div>
 </template>
-
-<script>
+<script lang="ts" setup>
+import { watch, ref, onMounted, computed } from "vue";
+const rememberMe = ref(true)
+const handleSubmit = () => {
+	console.log('111111111')
+}
+</script>
+<!-- <script>
 
 	export default ({
 		data() {
@@ -87,7 +93,7 @@
 		},
 	})
 
-</script>
+</script> -->
 
 <style lang="scss">
 	body {

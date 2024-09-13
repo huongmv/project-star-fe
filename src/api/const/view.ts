@@ -1,0 +1,1 @@
+export const V1_VEW = '/v1/list-view/find-by-code/'
