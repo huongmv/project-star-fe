@@ -25,7 +25,8 @@ const commonStore = {
         isStoreCategory: 0,
         isLoadCart: '',
         isLoadLogin: '',
-        isSearchKey: ''
+        isSearchKey: '',
+        isLayoutClass: ''
     },
     mutations,
     actions,

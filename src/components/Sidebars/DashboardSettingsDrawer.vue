@@ -8,7 +8,6 @@
 		:closable="false"
 		:visible="showSettingsDrawer"
 		width="360"
-		
 		@close="toggleSettingsDrawer(false)"
 	>
 
@@ -39,14 +38,14 @@
 					<a-radio-button value="black" class="bg-dark"></a-radio-button>
 				</a-radio-group>
 			</div>
-			<div class="sidenav-type">
+			<div class="">
 				<h6>Sidenav Type</h6>
 				<p>Choose between 2 different sidenav types.</p>
-				<a-radio-group button-style="solid" v-model="sidebarThemeModel" @change="updateSidebarTheme($event.target.value)" defaultValue="primary">
-					<a-radio-button value="light">TRANSPARENT</a-radio-button>
-					<a-radio-button value="white">WHITE</a-radio-button>
-					<a-radio-button value="dark">DARK</a-radio-button>
-				</a-radio-group>
+				<a-flex wrap="wrap" gap="small">
+					<a-button style="background: transparent; text-transform: uppercase;" @click="updateSidebarTheme('light')">{{ $t('config.transparent') }}</a-button>
+					<a-button style="background: #fff; text-transform: uppercase;" @click="updateSidebarTheme('white')">{{ $t('config.white') }}</a-button>
+					<a-button style="background: #001529; color: #fff; text-transform: uppercase;" @click="updateSidebarTheme('dark')">{{ $t('config.dark') }}</a-button>
+				</a-flex>
 			</div>
 			<div class="navbar-fixed">
 				<h6>{{$t('message.000001') }}</h6>

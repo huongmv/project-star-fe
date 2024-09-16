@@ -1,4 +1,9 @@
 {
+    "config": {
+        "transparent": "Transparent",
+        "white": "White",
+        "dark": "Dark"
+    },
     "btn": {
         "deleteAll": "Delete all",
         "search": "Search",

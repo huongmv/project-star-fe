@@ -10,7 +10,8 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
- 
+
+ /*
   
   .order-first {
     -ms-flex-order: -1;
@@ -43013,15 +43014,7 @@
   .pace-progress-color-gray-dark .pace-progress {
     color: #343a40;
   }
-  
-  /**
-    * bootstrap-switch - Turn checkboxes and radio buttons into toggle switches.
-    *
-    * @version v3.4 (MODDED)
-    * @homepage https://bttstrp.github.io/bootstrap-switch
-    * @author Mattia Larentis <mattia@larentis.eu> (http://larentis.eu)
-    * @license MIT
-    */
+
   .bootstrap-switch {
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
@@ -52279,4 +52272,4 @@
   .dark-mode .border-dark {
     border-color: #4b545c !important;
   }
-  /*# sourceMappingURL=adminlte.css.map */
+  */

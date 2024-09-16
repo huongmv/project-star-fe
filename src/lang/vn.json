@@ -1,4 +1,9 @@
 {
+    "config": {
+        "transparent": "Trong suốt",
+        "white": "Trắng",
+        "dark": "Tối"
+    },
     "btn": {
         "deleteAll": "Xóa tất cả",
         "search": "Tìm kiếm",
@@ -28,6 +33,5 @@
         "confirmDelete": "Bạn có chắc chắn muốn xóa?",
         "confirmChangeAction": "Dữ liệu đang nhập sẽ bị mất, bạn có chắc chắn muốn thực hiện?",
         "000001": ""
-     
     }
 }

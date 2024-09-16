@@ -44,7 +44,7 @@ let routes = [
 		path: '/user-list',
 		name: 'Userlist',
 		layout: "dashboard",
-		component: () => import('../views/user/UserList.vue'),
+		component: () => import('../views/client/user/UserList.vue'),
 	},
 	{
 		path: '/layout',
