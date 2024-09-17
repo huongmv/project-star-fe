@@ -9,14 +9,14 @@
 		<!-- Sign Up Image And Headings -->
 		<div class="sign-up-header" style="background-image: url('images/bg-signup.jpg')">
 			<div class="content">
-				<h1 class="mb-5">Sign Up</h1>
+				<h1 class="mb-1">Sign Up</h1>
 				<p class="text-lg">Use these awesome forms to login or create new account in your project for free.</p>
 			</div>
 		</div>
 		<!-- / Sign Up Image And Headings -->
 		
 		<!-- Sign Up Form -->
-		<a-card :bordered="false" class="card-signup header-solid h-full" :bodyStyle="{paddingTop: 0}">
+		<a-card :bordered="true" class="card-signup header-solid h-full" :bodyStyle="{paddingTop: 0}">
 			<template #title>
 				<h5 class="font-semibold text-center">Register With</h5>
 			</template>

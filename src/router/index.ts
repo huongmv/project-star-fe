@@ -30,12 +30,13 @@ let routes = [
 	{
 		path: '/dashboard',
 		name: 'Dashboard',
-		layout: "dashboard",
+		
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
 		meta: {
+			layout: "dashboard",
 			requiresAuth: false,
 			breadcrumb: [{'key': './', 'value': 'btn.delete'}, {'key': '/favourite', 'value':'btn.create'}, {'key': '', 'value':'btn.update' }]
 		  },
@@ -45,23 +46,43 @@ let routes = [
 		name: 'Userlist',
 		layout: "dashboard",
 		component: () => import('../views/client/user/UserList.vue'),
+		meta: {
+			layout: "dashboard",
+			requiresAuth: false,
+			breadcrumb: [{'key': './', 'value': 'btn.delete'}, {'key': '/favourite', 'value':'btn.create'}, {'key': '', 'value':'btn.update' }]
+		  },
 	},
 	{
 		path: '/layout',
 		name: 'Layout',
         layouts: 'layout',
 		component: () => import('../views/Layout.vue'),
+		meta: {
+			layout: "dashboard",
+			requiresAuth: false,
+			breadcrumb: [{'key': './', 'value': 'btn.delete'}, {'key': '/favourite', 'value':'btn.create'}, {'key': '', 'value':'btn.update' }]
+		  },
 	},
 	{
 		path: '/tables',
 		name: 'Tables',
 		layout: "dashboard",
 		component: () => import('../views/Tables.vue'),
+		meta: {
+			layout: "dashboard",
+			requiresAuth: false,
+			breadcrumb: [{'key': './', 'value': 'btn.delete'}, {'key': '/favourite', 'value':'btn.create'}, {'key': '', 'value':'btn.update' }]
+		  },
 	},
 	{
 		path: '/billing',
 		name: 'Billing',
 		component: () => import('../views/Billing.vue'),
+		meta: {
+			layout: "default",
+			requiresAuth: false,
+			breadcrumb: [{'key': './', 'value': 'btn.delete'}, {'key': '/favourite', 'value':'btn.create'}, {'key': '', 'value':'btn.update' }]
+		  },
 	},
 	{
 		path: '/rtl',
@@ -86,6 +107,11 @@ let routes = [
 		name: 'Sign-In',
 		layout: "dashboard",
 		component: () => import('../views/Sign-In.vue'),
+		meta: {
+			layout: "layout-sign-in",
+			requiresAuth: false,
+			breadcrumb: [{'key': './', 'value': 'btn.delete'}, {'key': '/favourite', 'value':'btn.create'}, {'key': '', 'value':'btn.update' }]
+		  },
 	},
 	{
 		path: '/sign-up',
@@ -145,6 +171,8 @@ const router = createRouter({
 	let isLoginer = cookies.get(USER_LOGINED)
 	// let isLoginer = store.getters.isLoggedIn
 	store.dispatch('setBreadcrumb', to.meta.breadcrumb)
+	console.log('to.meta.layoutClass')
+	console.log(to.meta.layoutClass)
 	store.dispatch('setLayoutClass', to.meta.layoutClass)
 	cookies.set(SETTING_BREAKCRUMB, JSON.stringify(to.meta.breadcrumb));
 	if (to.matched.some(record => record.meta.requiresAuth)) {

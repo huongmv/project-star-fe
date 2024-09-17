@@ -5,12 +5,14 @@
   </nav>
   <router-view/> -->
   <div id="app">
-		<component :is="layout">
+		<component :is="'layout-'+ route.meta.layout || 'default'">
 			<router-view />
 		</component>
 	</div>
 </template>
 <script lang="ts" setup>
+import { useRouter, useRoute } from "vue-router";
+const route = useRoute();
 const layout = "layout-dashboard"
 	// export default ({
 	// 	computed: {

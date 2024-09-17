@@ -11,7 +11,7 @@
       :class="[
         navbarFixed ? 'navbar-fixed' : '',
         !sidebarCollapsed ? 'has-sidebar' : '',
-        layoutClass,
+        route.meta.layoutClass,
       ]"
     >
       <!-- Main Sidebar -->
@@ -133,9 +133,6 @@ watch(isLayoutClass, async (newValue, oldValue) => {
 
 onMounted(() => {
   modelConfig();
-  
-  console.log('layoutClass')
-  console.log(layoutClass)
 });
 const toggleSidebar = (val: any) => {
   sidebarCollapsed.value = val;
@@ -169,8 +166,7 @@ const modelConfig = () => {
   sidebarColor.value = cookiesConFig.getCokies(SIDEBAR_COLOR);
   sidebarTheme.value = cookiesConFig.getCokies(SIDEBAR_THEME);
   navbarFixed.value = cookiesConFig.getCokiesBoolean(NAVBAR_FIXED);
-  showSettingsDrawer.value =
-    cookiesConFig.getCokiesBoolean(SHOW_SETTINGS_DRAWER);
+  showSettingsDrawer.value = cookiesConFig.getCokiesBoolean(SHOW_SETTINGS_DRAWER);
   darkType.value = cookiesConFig.getCokies(DARK_TYPE);
 };
 </script>

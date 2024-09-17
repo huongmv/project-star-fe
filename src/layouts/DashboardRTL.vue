@@ -6,7 +6,7 @@
 	<div>
 
 		<!-- Dashboard Layout -->
-		<a-layout class="layout-dashboard layout-dashboard-rtl" id="layout-dashboard" :class="[navbarFixed ? 'navbar-fixed' : '', ! sidebarCollapsed ? 'has-sidebar' : '', layoutClass]">
+		<a-layout class="layout-dashboard layout-dashboard-rtl" id="layout-dashboard" :class="[navbarFixed ? 'navbar-fixed' : '', ! sidebarCollapsed ? 'has-sidebar' : '', route.meta.layoutClass]">
 			
 			<!-- Settings Drawer -->
 			<DashboardSettingsDrawer
@@ -73,7 +73,88 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts" setup>
+import { watch, ref, onMounted, computed } from "vue";
+import DashboardSidebar from '../components/Sidebars/DashboardSidebar.vue' ;
+import DashboardHeader from '../components/Headers/DashboardHeader.vue' ;
+import DashboardFooter from '../components/Footers/DashboardFooter.vue' ;
+import DashboardSettingsDrawer from '../components/Sidebars/DashboardSettingsDrawer.vue' ;
+import { useRouter, useRoute } from "vue-router";
+import cookiesConFig from "@/utils/CookiesConfig";
+import {
+  DARK_TYPE,
+  SIDEBAR_COLOR,
+  SIDEBAR_THEME,
+  NAVBAR_FIXED,
+  SHOW_SETTINGS_DRAWER,
+} from "@/const/ConstCookies";
+import store from '@/store/index'
+const route = useRoute();
+const sidebarCollapsed = ref(false);
+const sidebarColor = ref("primary");
+const sidebarTheme = ref("dark");
+const navbarFixed = ref(false);
+const showSettingsDrawer = ref(false);
+const darkType = ref("");
+// const layoutClass = computed(() => {
+//   return route.meta.layoutClass;
+// });
+const layoutClass =  ref('default');
+const isLayoutClass = computed(() => {
+    return store.getters.isLayoutClass
+})
+
+watch(isLayoutClass, async (newValue, oldValue) => {
+  console.log('newValue')
+  layoutClass.value = newValue
+  if(newValue == null || newValue == '') {
+    layoutClass.value = 'default'
+  } else {
+    layoutClass.value = newValue
+  }
+  console.log(newValue)
+})
+
+onMounted(() => {
+  modelConfig();
+});
+const toggleSidebar = (val: any) => {
+  sidebarCollapsed.value = val;
+};
+
+const toggleSettingsDrawer = (val: any) => {
+  cookiesConFig.setCokies(SHOW_SETTINGS_DRAWER, val);
+  showSettingsDrawer.value = val;
+};
+
+const toggleNavbarPosition = (val: any) => {
+  cookiesConFig.setCokies(NAVBAR_FIXED, val);
+  navbarFixed.value = val;
+};
+
+const updateSidebarTheme = (val: any) => {
+  cookiesConFig.setCokies(SIDEBAR_THEME, val);
+  sidebarTheme.value = val;
+};
+
+const updateSidebarColor = (val: any) => {
+  cookiesConFig.setCokies(SIDEBAR_COLOR, val);
+  sidebarColor.value = val;
+};
+const darkModel = (val: any) => {
+  cookiesConFig.setCokies(DARK_TYPE, val);
+  darkType.value = val;
+};
+
+const modelConfig = () => {
+  sidebarColor.value = cookiesConFig.getCokies(SIDEBAR_COLOR);
+  sidebarTheme.value = cookiesConFig.getCokies(SIDEBAR_THEME);
+  navbarFixed.value = cookiesConFig.getCokiesBoolean(NAVBAR_FIXED);
+  showSettingsDrawer.value = cookiesConFig.getCokiesBoolean(SHOW_SETTINGS_DRAWER);
+  darkType.value = cookiesConFig.getCokies(DARK_TYPE);
+};
+</script>
+<!-- <script>
 
 	import DashboardSidebar from '../components/Sidebars/DashboardSidebar' ;
 	import DashboardHeader from '../components/Headers/DashboardHeader' ;
@@ -130,4 +211,4 @@
 		},
 	})
 
-</script>
+</script> -->
