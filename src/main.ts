@@ -11,12 +11,13 @@ import DashboardRTLLayout from './layouts/DashboardRTL.vue'
 import i18n from '../createI18n'
 import VueCookies from 'vue3-cookies'
 import { useCookies } from "vue3-cookies"
-import './scss/app.scss';
-import './assets/fontawesome-free5154/css/all.min.css'
+/** CSS */
+import './scss/app.scss'
 import './assets/css/dark.css'
+import './assets/css/adminlte.css'
+import './assets/fontawesome-free5154/css/all.min.css'
 const { cookies } = useCookies()
 const app = createApp(App)
-
 app.component("layout-default", DefaultLayout);
 app.component("layout-dashboard", DashboardLayout);
 app.component("layout-dashboard-rtl", DashboardRTLLayout);
@@ -26,8 +27,7 @@ app.config.globalProperties._router = router
 app.use(VueCookies, {
     expireTimes: "8h"
 });
-app
-.use(Antd)
+app.use(Antd)
 .use(store)
 .use(router)
 .use(i18n)
