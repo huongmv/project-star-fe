@@ -22,10 +22,10 @@
     <div class="container-fluid">
       <div class="row">
         <!-- <canvas id="myChart"></canvas> -->
-        <section class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartCPU :time="time" :ip="ip"></ChartCPU></section>
-        <section class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartRAM :time="time" :ip="ip"></ChartRAM></section>
-        <section class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartCPU2 :time="time" :ip="ip"></ChartCPU2></section>
-        <section class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartRAM2 :time="time" :ip="ip"></ChartRAM2></section>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartCPU :time="time" :ip="ip"></ChartCPU></div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartRAM :time="time" :ip="ip"></ChartRAM></div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartCPU2 :time="time" :ip="ip"></ChartCPU2></div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-6"><ChartRAM2 :time="time" :ip="ip"></ChartRAM2></div>
       </div>
     </div>
   </section>
@@ -44,7 +44,15 @@ const setParam = () => {
     time.value = '12213312321'
     ip.value = '4534534534'
 }
+const timeInterval = ref(3000)
 const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
+
+onMounted(()=> {
+  setInterval(() => {
+    console.log('11111111111111111111111')
+  }, timeInterval.value);
+})
+
 </script>

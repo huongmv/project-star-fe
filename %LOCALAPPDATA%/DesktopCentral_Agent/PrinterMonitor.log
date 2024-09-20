@@ -1,0 +1,24 @@
+﻿Date	Time	Severity	PID	TID	Function	Message
+19-09-2024	17:51:28.618	 INFO	 38172	  7436	DllMain	"DLL_PROCESS_ATTACH Mon Jan 29 04:05:37 2024 11.3.2406.1"
+19-09-2024	17:51:28.627	 INFO	 38172	  7436	DllMain	"PROCESS ATTACHED"
+19-09-2024	17:51:28.631	 INFO	 38172	  5548	LateInitialization	"Intialization..."
+19-09-2024	17:51:28.637	 INFO	 38172	  5548	LoadDisplayDevicesName	"DisplayDevices : "
+19-09-2024	17:51:28.642	 INFO	 38172	  5548	LoadDisplayDevicesName	"\\.\DISPLAY1"
+19-09-2024	17:51:28.646	 INFO	 38172	  5548	LoadDisplayDevicesName	"\\.\DISPLAY2"
+19-09-2024	17:51:28.651	 INFO	 38172	  5548	LoadDisplayDevicesName	"\\.\DISPLAY3"
+19-09-2024	17:51:28.662	 INFO	 38172	  5548	LoadDisplayDevicesName	"\\.\DISPLAY4"
+19-09-2024	17:51:28.670	ERROR	 38172	  5548	LateInitialization	"std::exception caught = GetFileVersionInfoSizeW failed with 1813
+"
+19-09-2024	17:51:28.675	 INFO	 38172	  5548	LateInitialization	"Exe = C:\Users\huong.mac\AppData\Local\Programs\Git\usr\bin\bash.exe
+ProductName = 
+FileDescription = 
+ShadowFolder = %LOCALAPPDATA%\EndpointDLP\print-shadow
+ParsingMode = Hybrid
+DeletePrinterShadowFiles = 1
+PrinterUseDisplayDevicesList = 0
+EnablePrinterEscapeProcessing = 1
+EnableWatermarkForAll = 0
+MaxPrintPages = 4294967295
+GdiPlusToken = 87081093
+ExcludedEscapes = 4117, 37, 4118, 4115, 4121, "
+19-09-2024	17:51:28.679	 INFO	 38172	  5548	LateInitialization	"Intialization finished"

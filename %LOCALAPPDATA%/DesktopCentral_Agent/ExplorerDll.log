@@ -1,0 +1,7 @@
+﻿Date	Time	Severity	PID	TID	Function	Message
+19-09-2024	17:51:28.661	 INFO	 38172	 21620	DllMain	"DLL_PROCESS_ATTACH Mon Jan 29 04:05:37 2024 11.3.2406.1"
+19-09-2024	17:51:28.667	 INFO	 38172	 41908	LateInitialization	"Intialization..."
+19-09-2024	17:51:28.671	 INFO	 38172	 41908	LateInitialization	"Exe = C:\Users\huong.mac\AppData\Local\Programs\Git\usr\bin\bash.exe"
+19-09-2024	17:51:28.675	 INFO	 38172	 41908	LateInitialization	"IsExplorer = 0"
+19-09-2024	17:51:28.679	 INFO	 38172	 41908	Edlp::Path::InitializeExcludedPathPatterns	"Windows drive = C:"
+19-09-2024	17:51:28.683	 INFO	 38172	 41908	LateInitialization	"Intialization finished"

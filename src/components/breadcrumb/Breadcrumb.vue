@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="break-crumb">
     <a-breadcrumb>
       <a-breadcrumb-item
         v-for="(item, index) in route.meta.breadcrumb"
@@ -24,3 +24,13 @@
 import { useRoute } from "vue-router";
 const route = useRoute();
 </script>
+<style>
+.dark-mode .break-crumb a,
+.dark-mode .break-crumb span,
+.dark-mode .break-crumb .ant-breadcrumb-separator,
+.dark-mode .break-crumb button,
+.dark-mode .break-crumb i{
+  color: #fff !important;
+}
+
+</style>

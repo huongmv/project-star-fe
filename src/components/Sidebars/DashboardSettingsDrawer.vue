@@ -150,7 +150,6 @@ const toggleSettingsDrawer = (val:any) => {
 	emits('toggleSettingsDrawer', val)
 }
 const modelConfig = () => {
-
 	sidebarColorModel.value = cookiesConFig.getCokies(SIDEBAR_COLOR);
 	sidebarThemeModel.value = cookiesConFig.getCokies(SIDEBAR_THEME);
 	navbarFixedModel.value = cookiesConFig.getCokiesBoolean(NAVBAR_FIXED_MODEL);
