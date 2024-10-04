@@ -1,0 +1,1 @@
+export const V1_MENU_LIST_ALL = '/v1/menu/list-all'
