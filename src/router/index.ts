@@ -5,6 +5,7 @@ import { useCookies } from "vue3-cookies"
 import { SETTING_BREAKCRUMB, USER_LOGINED } from '@/const/ConstCookies'
 import { V1_ROUTER_LIST_ALL } from "@/api/const/router"
 import { apiPost, apiGetNoParam, apiGet } from "@/api/index"
+
 const _ = require('lodash');
 
 const { cookies } = useCookies()
@@ -14,13 +15,12 @@ await apiGetNoParam(V1_ROUTER_LIST_ALL).then((res) => {
 	let value = response.data.data;
 	for (let i = 0; i < value.length; i++) {
 		let item = value[i]
-		let data = '../views/Dashboard.vue'
 		let dataRouter = {
 			path: item.path,
 			name: item.name,
 			redirect: item.redirect,
 			layout: item.layout,
-			component: () => import(data),
+			component: () => import('../views' +`${item.component}`),
 			meta: item.meta,
 		}
 		Object.fromEntries(Object.entries(dataRouter).filter(([key, value]) => value !== null));
