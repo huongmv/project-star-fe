@@ -14,7 +14,7 @@
 				<h5 class="font-regular text-muted">Enter your email and password to sign in</h5>
 
 				<!-- Sign In Form -->
-				<a-form
+				<!-- <a-form
 					id="components-form-demo-normal-login"
 					form="normal_login"
 					class="login-form"
@@ -36,12 +36,44 @@
 						]" type="password" placeholder="Password" />
 					</a-form-item>
 					<a-form-item class="mb-10">
-    					<a-switch v-model="rememberMe" /> Remember Me
+    					<a-switch v-model:value="rememberMe" /> Remember Me
 					</a-form-item>
 					<a-form-item>
 						<a-button type="primary" block html-type="submit" class="login-form-button">
 							SIGN IN
 						</a-button>
+					</a-form-item>
+				</a-form> -->
+				<a-form
+					class="login-form"
+					:model="formState"
+					name="basic"
+					autocomplete="off"
+					@finish="onFinish"
+					@finishFailed="onFinishFailed"
+				>
+					<a-form-item  class="mb-10"
+					label="Username"
+					name="username"
+					:rules="[{ required: true, message: 'Please input your username!' }]"
+					>
+					<a-input v-model:value="formState.username" />
+					</a-form-item>
+
+					<a-form-item class="mb-10"
+					label="Password"
+					name="password"
+					:rules="[{ required: true, message: 'Please input your password!' }]"
+					>
+					<a-input-password  v-model:value="formState.password" />
+					</a-form-item>
+
+					<a-form-item name="remember" :wrapper-col="{ offset: 8, span: 16 }">
+					<a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
+					</a-form-item>
+
+					<a-form-item :wrapper-col="{ offset: 8, span: 16 }">
+					<a-button type="primary" html-type="submit">Submit</a-button>
 					</a-form-item>
 				</a-form>
 				<!-- / Sign In Form -->
@@ -61,11 +93,30 @@
 	</div>
 </template>
 <script lang="ts" setup>
-import { watch, ref, onMounted, computed } from "vue";
+import { watch, ref, onMounted, computed, reactive } from "vue";
 const rememberMe = ref(true)
 const handleSubmit = () => {
 	console.log('111111111')
 }
+
+interface FormState {
+  username: string;
+  password: string;
+  remember: boolean;
+}
+
+const formState = reactive<FormState>({
+  username: '',
+  password: '',
+  remember: true,
+});
+const onFinish = (values: any) => {
+  console.log('Success:', values);
+};
+
+const onFinishFailed = (errorInfo: any) => {
+  console.log('Failed:', errorInfo);
+};
 </script>
 <!-- <script>
 
@@ -96,7 +147,5 @@ const handleSubmit = () => {
 </script> -->
 
 <style lang="scss">
-	body {
-		background-color: #ffffff;
-	}
+
 </style>

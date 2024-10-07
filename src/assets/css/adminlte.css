@@ -238,7 +238,7 @@ button:focus:not(:focus-visible) {
   outline: 0;
 }
 
-input,
+/* input,
 button,
 select,
 optgroup,
@@ -252,7 +252,7 @@ textarea {
 button,
 input {
   overflow: visible;
-}
+} */
 
 button,
 select {
@@ -3182,11 +3182,11 @@ fieldset:disabled a.btn {
   margin-top: 0.5rem;
 }
 
-input[type="submit"].btn-block,
+/* input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
-}
+} */
 
 .fade {
   transition: opacity 0.15s linear;

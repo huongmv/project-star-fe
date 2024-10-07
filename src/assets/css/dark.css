@@ -1,12 +1,13 @@
 .dark-mode .ant-card-body {
-  background-color: #454d55;
-  color: #fff;
+  background-color: #454d55 ;
+  color: hsla(0, 0%, 100%, .7);
 }
 
 .dark-mode .ant-card-body span,
 .dark-mode .ant-statistic-title {
-  color: #fff !important;
+  color: hsla(0, 0%, 100%, .7) !important;
 }
+/** TABLE */
 .dark-mode .table-version1 i,
 .dark-mode .table-version1 a,
 .dark-mode .table-version1 span,
@@ -18,4 +19,29 @@
 .dark-mode .table-version1 li:hover {
   color: #fff !important;
 }
+/* .dark-mode .table-data,
+.dark-mode .ant-table-container,
+.dark-mode .ant-table-thead >tr>th {
+  background-color: #454d55 !important;
+} */
+/* .dark-mode .ant-table-thead >tr>th {
+  background-color: #454d55 !important;
+} */
+/**END TABLE */
+/** MENU */
+.dark-mode .router-link-active {
+  background-color: unset !important;
+  color: #fff !important;
+  box-shadow:unset !important;
+  font-weight: 600;
+}
 
+.dark-mode .ant-menu-item a, 
+.dark-mode  .ant-menu-submenu a {
+  color: hsla(0, 0%, 100%, .7) !important;
+}
+.dark-mode .ant-menu-item i, 
+.dark-mode  .ant-menu-submenu i {
+  color: #000 !important;
+}
+/**END MENU */

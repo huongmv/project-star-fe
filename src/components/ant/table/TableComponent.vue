@@ -7,7 +7,7 @@
         :pagination="false"
         @change="onChange"
         theme="dark"
-        :scroll="{ x: xScroll, y: yScroll }"
+        :scroll="xScroll"
       >
         <template #headerCell="{ column }">
           <span>
@@ -111,12 +111,14 @@ interface props {
   apiCode: any;
   float: any;
   xScroll: any;
-  yScroll: any;
   cTable: any;
+  param: any;
 }
 const define = withDefaults(defineProps<props>(), {
   apiCode: "",
   float: "cmn-paging-right",
+  xScroll: "",
+  param: "",
 });
 onMounted(async () => {
   await loadData();
@@ -134,7 +136,7 @@ const pagination = computed(() => ({
 }));
 const dataResApi = ref()
 const loadData = async () => {
-  let param = "?page=" + current.value + "&size=" + pageSize.value;
+  let param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param;
   await apiGetNoParam(V1_VEW + define.apiCode + param).then((res) => {
     let response: any = res;
     let dataRes = response.data.data;

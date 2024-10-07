@@ -26,6 +26,13 @@ const layout = "layout-dashboard"
 	
 </script>
 <style lang="scss">
+.ant-form-item-control-input-content {
+	align-items: center;
+    display: flex;
+}
+.ant-input-affix-wrapper {
+	line-height: 38px;
+}
 // #app {
 //   font-family: Avenir, Helvetica, Arial, sans-serif;
 //   -webkit-font-smoothing: antialiased;
