@@ -100,7 +100,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted, onUpdated, computed } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import { SmileOutlined, DownOutlined } from "@ant-design/icons-vue";
 import { apiPost, apiGetNoParam, apiGet } from "@/api/index";
 import { V1_VEW } from "@/api/const/view";
@@ -136,6 +136,8 @@ const pagination = computed(() => ({
 }));
 const dataResApi = ref()
 const loadData = async () => {
+  console.log('define.param')
+  console.log(define.param)
   let param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param;
   await apiGetNoParam(V1_VEW + define.apiCode + param).then((res) => {
     let response: any = res;
@@ -191,6 +193,13 @@ const changeSort = async (sorter:any) => {
     }
   });
 };
+const defineParam = computed(() => {
+    return define.param
+})
+watch(defineParam, async (newValue, oldValue) => {
+  console.log('44444444444444444444444444')
+  await loadData();
+})
 </script>
 <style scoped>
 @media only screen and (min-width: 100px) and (max-width: 767px) {
