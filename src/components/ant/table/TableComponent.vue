@@ -113,12 +113,14 @@ interface props {
   xScroll: any;
   cTable: any;
   param: any;
+  condition: any;
 }
 const define = withDefaults(defineProps<props>(), {
   apiCode: "",
   float: "cmn-paging-right",
   xScroll: "",
   param: "",
+  condition: "",
 });
 onMounted(async () => {
   await loadData();
@@ -136,9 +138,7 @@ const pagination = computed(() => ({
 }));
 const dataResApi = ref()
 const loadData = async () => {
-  console.log('define.param')
-  console.log(define.param)
-  let param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param;
+  let param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
   await apiGetNoParam(V1_VEW + define.apiCode + param).then((res) => {
     let response: any = res;
     let dataRes = response.data.data;
@@ -196,10 +196,19 @@ const changeSort = async (sorter:any) => {
 const defineParam = computed(() => {
     return define.param
 })
-watch(defineParam, async (newValue, oldValue) => {
+const defineCondition = computed(() => {
+    return define.condition
+})
+watch([defineParam, defineCondition], async ([newValueParam, oldValueParam], [newValueCondition, oldValueCondition]) => {
   console.log('44444444444444444444444444')
   await loadData();
 })
+
+// watch(defineCondition, async (newValue, oldValue) => {
+//   console.log('555555555555555555')
+//   console.log(newValue)
+//   await loadData();
+// })
 </script>
 <style scoped>
 @media only screen and (min-width: 100px) and (max-width: 767px) {

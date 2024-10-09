@@ -46,7 +46,7 @@ const handleFinishFailed: FormProps["onFinishFailed"] = (errors) => {
   console.log(errors);
 };
 const searchUser = async () => {
-  let param = {search:formState.search}
+  let param = [{key:'progCode',type:'like',value :formState.search}]
   emits('userSearch', await apiUtils.getHashCodeParam(param))
 };
 </script>

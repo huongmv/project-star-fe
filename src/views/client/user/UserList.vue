@@ -5,7 +5,7 @@
     <div class="mt-2 mb-2">
       <UserSearch @userSearch="userSearch"></UserSearch>
     </div>
-    <TableComponent apiCode="pol-back1" cTable="table-version1" :param="searchValue">
+    <TableComponent apiCode="pol-back1" cTable="table-version1" :condition="searchValue">
       <template #action="action">
         <div class="thao-tac">
           <DotTable>
@@ -35,10 +35,12 @@ onMounted(() => {
   dataEncrypt.value = "asasasas";
 });
 const searchValue = ref('')
+const param = ref('')
 const userSearch = (val: any) => {
   console.log('222222222222222222222')
   console.log(val.data)
   searchValue.value = val.data
+  param.value = val.data
 } 
 </script>
 <style scoped></style>
