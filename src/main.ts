@@ -11,7 +11,7 @@ import DashboardRTLLayout from './layouts/DashboardRTL.vue'
 import i18n from '../createI18n'
 import VueCookies from 'vue3-cookies'
 import { useCookies } from "vue3-cookies"
-
+import vue3GoogleLogin from 'vue3-google-login'
 /** CSS */
 import './scss/app.scss'
 import './assets/css/dark.css'
@@ -29,6 +29,10 @@ app.config.globalProperties._router = router
 app.use(VueCookies, {
     expireTimes: "8h"
 });
+app.use(vue3GoogleLogin, {
+    clientId: 'YOUR_GOOGLE_CLIENT_ID'
+})
+
 app.use(Antd)
 .use(store)
 .use(router)

@@ -138,11 +138,21 @@ const pagination = computed(() => ({
 }));
 const dataResApi = ref()
 const loadData = async () => {
-  let param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
+    pagination.value.total = 0;
+    pagination.value.current = 1;
+    pagination.value.pageSize = 10;
+    let param = "";
+    if(define.condition != '') {
+      param = "?page=" + 1 + "&size=" + 10 + "&param=" + define.param + "&conditions=" + define.condition;
+    } else if(define.param != ''){
+      param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
+    } else {
+      param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
+    }
+
   await apiGetNoParam(V1_VEW + define.apiCode + param).then((res) => {
     let response: any = res;
     let dataRes = response.data.data;
-    
     total.value = dataRes.total;
     inData.value = dataRes.body;
     inCol.value = dataRes.fieldName;
@@ -157,6 +167,7 @@ const dataMobile = async (dataRes:any) => {
 };
 
 const changeCurrent = async (val:any) => {
+  console.log('111111111')
   current.value = val.current;
   pageSize.value = val.pageSize;
   await loadData();
@@ -200,7 +211,6 @@ const defineCondition = computed(() => {
     return define.condition
 })
 watch([defineParam, defineCondition], async ([newValueParam, oldValueParam], [newValueCondition, oldValueCondition]) => {
-  console.log('44444444444444444444444444')
   await loadData();
 })
 
