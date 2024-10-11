@@ -37,8 +37,6 @@ onMounted(() => {
 const searchValue = ref('')
 const param = ref('')
 const userSearch = (val: any) => {
-  console.log('222222222222222222222')
-  console.log(val.data)
   searchValue.value = val.data
   param.value = val.data
 } 

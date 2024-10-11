@@ -138,18 +138,16 @@ const pagination = computed(() => ({
 }));
 const dataResApi = ref()
 const loadData = async () => {
-    pagination.value.total = 0;
-    pagination.value.current = 1;
-    pagination.value.pageSize = 10;
-    let param = "";
-    if(define.condition != '') {
-      param = "?page=" + 1 + "&size=" + 10 + "&param=" + define.param + "&conditions=" + define.condition;
-    } else if(define.param != ''){
-      param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
-    } else {
-      param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
-    }
+  let param = "?page=" + current.value + "&size=" + pageSize.value + "&param=" + define.param + "&conditions=" + define.condition;
+  searh(param)
+};
 
+const loadDataSearch = async () => {
+  let param = "?page=" + 1 + "&size=" + 10 + "&param=" + define.param + "&conditions=" + define.condition;
+  searh(param)
+};
+
+const searh = async (param: any) => {
   await apiGetNoParam(V1_VEW + define.apiCode + param).then((res) => {
     let response: any = res;
     let dataRes = response.data.data;
@@ -161,13 +159,13 @@ const loadData = async () => {
     pagination.value.pageSize = dataRes.size;
     dataMobile(dataRes);
   });
-};
+}
+
 const dataMobile = async (dataRes:any) => {
   dataResApi.value = dataRes
 };
 
 const changeCurrent = async (val:any) => {
-  console.log('111111111')
   current.value = val.current;
   pageSize.value = val.pageSize;
   await loadData();
@@ -211,14 +209,9 @@ const defineCondition = computed(() => {
     return define.condition
 })
 watch([defineParam, defineCondition], async ([newValueParam, oldValueParam], [newValueCondition, oldValueCondition]) => {
-  await loadData();
+  await loadDataSearch();
 })
 
-// watch(defineCondition, async (newValue, oldValue) => {
-//   console.log('555555555555555555')
-//   console.log(newValue)
-//   await loadData();
-// })
 </script>
 <style scoped>
 @media only screen and (min-width: 100px) and (max-width: 767px) {
