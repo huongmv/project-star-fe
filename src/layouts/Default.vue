@@ -4,9 +4,8 @@
 
 <template>
 	<div>
-
 		<!-- Default Layout -->
-		<a-layout class="layout-default" id="layout-default" :class="[layoutClass]">
+		<a-layout class="layout-default" id="layout-default" :class="[route.meta.layoutClass]">
 
 			<!-- Layout Header ( Navbar ) -->
 			<DefaultHeader></DefaultHeader>
@@ -15,7 +14,9 @@
 
 			<!-- Page Content -->
 			<a-layout-content>
-				<router-view />
+				<div class="main">
+					<router-view />
+				</div>
 			</a-layout-content>
 			<!-- / Page Content -->
 
@@ -28,8 +29,13 @@
 
 	</div>
 </template>
-
-<script>
+<script lang="ts" setup>
+import DefaultHeader from "@/components/Headers/DefaultHeader.vue";
+import DefaultFooter from "@/components/Footers/DefaultFooter.vue";
+import { useRouter, useRoute } from "vue-router";
+const route = useRoute();
+</script>
+<!-- <script>
 
 	import DefaultHeader from '../components/Headers/DefaultHeader' ;
 	import DefaultFooter from '../components/Footers/DefaultFooter' ;
@@ -51,4 +57,4 @@
 		},
 	})
 
-</script>
+</script> -->

@@ -11,9 +11,11 @@
 	</div>
 </template>
 <script lang="ts" setup>
+import { defineEmits, ref, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 const route = useRoute();
 const layout = "layout-dashboard"
+
 	// export default ({
 	// 	computed: {
 	// 		// Sets components name based on current route's specified layout, defaults to
