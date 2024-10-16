@@ -114,7 +114,7 @@
 .layout-default .about .layout-default .icon-box {
   background-color: var(--surface-color);
   padding: 50px 40px;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.layout-default .1);
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   transition: all 0.3s ease-out 0s;
 }
@@ -129,7 +129,7 @@
   margin-bottom: 24px;
   font-size: 32px;
   line-height: 0;
-  transition: all 0.layout-default .4s ease-out 0s;
+  transition: all 0.4s ease-out 0s;
   background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
   color: var(--accent-color);
 }

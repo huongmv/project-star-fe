@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-// import '../../assets/client/css/main.css'
+import '../../assets/client/css/client.css'
 </script>
 
 <style lang="scss" scoped>
