@@ -2,6 +2,16 @@
       <!-- Services Section -->
       <section id="services" class="services section">
 
+        <a-anchor :affix="false">
+            <a-anchor-link href="#components-anchor-demo-static" title="Static demo" />
+            <a-anchor-link href="#API" title="API">
+              <a-anchor-link href="#Anchor-Props" title="Anchor Props" />
+              <a-anchor-link href="#Link-Props" title="Link Props" />
+              <a-anchor-link href="#components-anchor-demo-basic" title="Basic demo" />
+          </a-anchor-link>
+        </a-anchor>
+
+
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
   <h2>Services</h2>
@@ -82,81 +92,5 @@
 </template>
 <style lang="css" scoped>
 
-/*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
-.layout-default .services .layout-default .service-item {
-  position: relative;
-  padding-top: 40px;
-}
-
-.layout-default .services .layout-default .service-item:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.layout-default .services .layout-default .service-item::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background: var(--accent-color);
-  border-right: 5px solid var(--background-color);
-}
-
-.layout-default .services .layout-default .service-item .layout-default .icon {
-  width: 48px;
-  height: 48px;
-  position: relative;
-  margin-right: 50px;
-  line-height: 0;
-}
-
-.layout-default .services .layout-default .service-item .layout-default .icon i {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 56px;
-  transition: ease-in-out 0.layout-default .3s;
-  z-index: 2;
-  position: relative;
-}
-
-.layout-default .services .layout-default .service-item .layout-default .icon:before {
-  position: absolute;
-  content: "";
-  height: 30px;
-  width: 30px;
-  background: color-mix(in srgb, var(--accent-color), transparent 70%);
-  border-radius: 50px;
-  z-index: 1;
-  bottom: -15px;
-  right: -15px;
-  transition: 0.layout-default .3s;
-}
-
-.layout-default .services .layout-default .service-item .layout-default .title {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.layout-default .services .layout-default .service-item .layout-default .title a {
-  color: var(--heading-color);
-}
-
-.layout-default .services .layout-default .service-item .layout-default .title a:hover {
-  color: var(--accent-color);
-}
-
-.layout-default .services .layout-default .service-item .layout-default .description {
-  line-height: 24px;
-  font-size: 14px;
-}
 
 </style>
