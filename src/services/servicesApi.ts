@@ -115,6 +115,16 @@ const service = {
             throw error
         })
     },
+    postKey(resource:any, params:any) {
+         app.axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
+        return app.axios.post(`${resource}`, params).catch(error => {
+            // const { cookies } = useCookies();
+            // store.dispatch('setLoggedIn', false)
+            // cookies.remove('user')
+            // cookies.remove('isUser')
+            throw error
+        })
+    },
     patch(resource:any, params:any) {
         return app.axios.patch(`${resource}`, params).catch(error => {
             // const { cookies } = useCookies();

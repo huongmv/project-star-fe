@@ -45,6 +45,20 @@ export const apiPost = async (url: string, data: any) => {
     })
 };
 
+export const postKey = async (url: string, data: any) => {
+    store.dispatch("setLoading", true);
+    // changeToken()
+    return new Promise((resolve, reject) => {
+        ApiService.post(url, data).then(response => {
+            store.dispatch("setLoading", false);
+            resolve(response)
+        }).catch(error => {
+            store.dispatch("setLoading", false);
+            throw getError(error);
+        })
+    })
+};
+
 export const apiPatch = async (url: string, data: any) => {
     store.dispatch("setLoading", true);
     changeToken()

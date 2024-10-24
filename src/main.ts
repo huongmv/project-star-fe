@@ -12,6 +12,9 @@ import i18n from '../createI18n'
 import VueCookies from 'vue3-cookies'
 import { useCookies } from "vue3-cookies"
 import vue3GoogleLogin from 'vue3-google-login'
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/themes/aura';
+
 /** CSS */
 import '../global.js'
 const { cookies } = useCookies()
@@ -29,7 +32,19 @@ app.use(VueCookies, {
 app.use(vue3GoogleLogin, {
     clientId: 'YOUR_GOOGLE_CLIENT_ID'
 })
-
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura,
+        options: {
+            prefix: 'p',
+            darkModeSelector: 'system',
+            cssLayer: {
+                name: 'primevue',
+                order: 'tailwind-base, primevue, tailwind-utilities'
+            }
+        }
+    }
+});
 app.use(Antd)
 .use(store)
 .use(router)
