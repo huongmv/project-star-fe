@@ -33,5 +33,18 @@
         "confirmDelete": "Are you sure?",
         "000001": ""
      
+    },
+    "text": {
+        "userName": "User name",
+        "password": "Password",
+        "phone": "Phone",
+        "validPassword": "Minimum of 8 characters",
+        "haveAccount": "You are have an account?",
+        "fullName": "First and last name",
+        "forgot": "Forgot password?",
+        "login": "Login",
+        "register": "Register",
+        "inputUser": "Input phone",
+        "inputPass": "Input password"
     }
 }

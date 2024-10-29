@@ -1,0 +1,1 @@
+export const USER_V1_LOGIN = '/user/login'

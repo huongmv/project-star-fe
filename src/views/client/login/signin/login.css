@@ -1,0 +1,26 @@
+/** Login Css*/
+.login-form .title-form {
+  padding-bottom: 0;
+  padding-top: 16px;
+  color: rgb(32, 33, 36);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.3333;
+  margin-bottom: 0;
+  margin-top: 0;
+  word-break: break-word;
+}
+
+.login-form .btn-submit:hover {
+  cursor: pointer;
+}
+.login-form .btn-submit {
+  background: #F89621 !important;
+  background-color: #F89621 !important;
+  color: #00334d !important;
+  padding: 25px 35px !important;
+  font-weight: 700;
+  font-size: 16px !important;
+  margin-bottom: 15px;
+}
+/** Login Css*/

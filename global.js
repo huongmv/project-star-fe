@@ -5,6 +5,7 @@
  Version: 1.0
  Author: HuongMV
  ======================================================================================= */
+import 'element-plus/dist/index.css'
 import '@/scss/app.scss'
 import '@/assets/css/dark.css'
 import '@/assets/css/adminlte.css'

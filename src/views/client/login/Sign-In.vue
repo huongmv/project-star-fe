@@ -44,7 +44,9 @@
 						</a-button>
 					</a-form-item>
 				</a-form> -->
-				<a-form
+
+				1111111
+				<!-- <a-form
 					class="login-form"
 					:model="formState"
 					name="basic"
@@ -75,9 +77,9 @@
 					<a-form-item :wrapper-col="{ offset: 8, span: 16 }">
 					<a-button type="primary" html-type="submit">Submit</a-button>
 					</a-form-item>
-				</a-form>
+				</a-form> -->
 				<!-- / Sign In Form -->
-
+				<Login  v-show="loginVal"></Login>
 				<p class="font-semibold text-muted">Don't have an account? <router-link to="/sign-in" class="font-bold text-dark">Sign Up</router-link></p>
 			</a-col>
 			<!-- / Sign In Form Column -->
@@ -94,6 +96,8 @@
 </template>
 <script lang="ts" setup>
 import { watch, ref, onMounted, computed, reactive } from "vue";
+import Login from '@/views/client/login/signin/Login.vue'
+const loginVal = ref(true);
 const rememberMe = ref(true)
 const handleSubmit = () => {
 	console.log('111111111')

@@ -33,5 +33,19 @@
         "confirmDelete": "Bạn có chắc chắn muốn xóa?",
         "confirmChangeAction": "Dữ liệu đang nhập sẽ bị mất, bạn có chắc chắn muốn thực hiện?",
         "000001": ""
+    },
+    "text": {
+        "userName": "Số điện thoại",
+        "password": "Mật khẩu",
+        "phone": "Số điện thoại",
+        "validPassword": "Tối thiểu 8 ký tự",
+        "haveAccount": "Bạn đã có tài khoản?",
+        "fullName": "Họ và tên",
+        "forgot": "Quên mật khẩu?",
+        "login": "Đăng nhập",
+        "register": "Đăng ký",
+        "inputUser": "Nhập số điện thoại",
+        "inputPass": "Nhập mật khẩu"
+
     }
 }
