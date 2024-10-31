@@ -31,6 +31,7 @@
     "vue-telegram-login": "^2.1.0",
     "vue3-cookies": "^1.0.6",
     "vue3-google-login": "^2.0.33",
+    "vue3-google-map": "^0.21.0",
     "vue3-telegram-login": "^1.1.0",
     "vuetify": "^3.7.3",
     "vuex": "^4.0.0"

@@ -1,9 +1,21 @@
 <template>
-    <div class="password-client  mb-40">
+    <div class="register-form  mb-40">
         <div class="mainDiv">
-
             <div class="cardStyle">
-                <v-card class="py-8 px-6 text-center mx-auto ma-4" elevation="12">
+                <v-card class="py-8 px-6 text-center mx-auto ma-4 card-signup header-solid h-full" elevation="12">
+                    <div class="sign-up-gateways">
+                        <GoogleRegister></GoogleRegister>
+                        <TelegramRegister></TelegramRegister>
+                        <!-- <a-button>
+                        <img src="images/logos/logo-apple.svg" alt="">
+                        </a-button> -->
+                        <div>
+                        <a-button>
+                            <img src="images/logos/Google__G__Logo.svg.png" alt="" />
+                        </a-button>
+                        </div>
+                    </div>
+                    <p class="text-center my-25 font-semibold text-muted">Or</p>
                     <div name="signupForm" id="signupForm">
                         <!-- <h2 class="formTitle">
                             Đăng ký tài khoản
@@ -113,6 +125,8 @@
 <script lang="ts" setup>
 import { watch, reactive, ref, onMounted, computed } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
+import GoogleRegister from "@/views/client/login/singup/GoogleRegister.vue";
+import TelegramRegister from "@/views/client/login/singup/TelegramRegister.vue";
 import { ElMessage } from 'element-plus'
 import {
     USER,
@@ -378,44 +392,7 @@ const optionsProvince = ref([])
 const optionsDistrict = ref([])
 const optionsWard = ref([])
 const disabledAddress = ref(true)
-const loadDistrict = () => {
-    optionsDistrict.value = []
-    optionsWard.value = []
-    formRegister.distCode = null
-    formRegister.wardCode = null
-    for (let i = 0; i < optionsProvince.value.length; i++) {
-        if (optionsProvince.value[i].code === formRegister.proCode) {
-            optionsDistrict.value = optionsProvince.value[i].district
-            formRegister.proName = optionsProvince.value[i].name
-            break;
-        }
-    }
-    if (optionsProvince.value.length > 0) {
-        disabledAddress.value = false
-    }
-}
 
-
-const loadWard = () => {
-    optionsWard.value = []
-    formRegister.wardCode = null
-    for (let i = 0; i < optionsDistrict.value.length; i++) {
-        if (optionsDistrict.value[i].code === formRegister.distCode) {
-            optionsWard.value = optionsDistrict.value[i].ward
-            formRegister.distName = optionsDistrict.value[i].name
-            break;
-        }
-    }
-}
-
-const setWardName = () => {
-    for (let i = 0; i < optionsWard.value.length; i++) {
-        if (optionsWard.value[i].code === formRegister.wardCode) {
-            formRegister.wardName = optionsWard.value[i].name
-            break;
-        }
-    }
-}
 const active = ref(0)
 
 const next = () => {
@@ -425,6 +402,9 @@ const next = () => {
 </script>
 
 <style lang="css" scoped>
+.register-form {
+    margin-top: -120px;
+}
 .card-signup .sign-up-gateways{
     display: flex;
     align-items: center;
@@ -434,7 +414,7 @@ const next = () => {
 .card-signup .btn-submit:hover {
     cursor: pointer;
  }
- 
+
 .card-signup .btn-submit {
     background: #F89621 !important;
     background-color: #F89621 !important;

@@ -72,7 +72,6 @@
               </div>
               <div @click="loginGoogle">
                 <!-- <GoogleLogin :callback="callback"/> -->
-                login
               </div>
             </el-form>
           </v-card>
