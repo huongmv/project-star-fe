@@ -2,8 +2,8 @@
     <div>
         <!-- https://vue3-google-map.com/components/marker.html -->
         <GoogleMap api-key="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg" 
-        mapTypeId="terrain"
-        style="width: 100%; height: 500px"
+            mapTypeId="terrain"
+            style="width: 100%; height: 500px"
             :center="center" :zoom="15"  @click="onClickMap">
             <Marker :options="{ position: center }"/>
             <!-- <CustomMarker :options="{ position: center, anchorPoint: 'BOTTOM_CENTER', zIndex: 2 }">

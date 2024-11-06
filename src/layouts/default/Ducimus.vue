@@ -18,7 +18,7 @@
                     <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box">
                       <i class="fa-solid fa-building"></i>
-                        <h3>Eius provident</h3>
+                        <h3>Web Design</h3>
                         <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
                     </div>
                     </div> <!-- End Icon Box -->
@@ -26,7 +26,7 @@
                     <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box">
                       <i class="fa-solid fa-clipboard"></i>
-                        <h3>Rerum aperiam</h3>
+                        <h3>Marketing</h3>
                         <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
                     </div>
                     </div> <!-- End Icon Box -->
@@ -34,7 +34,7 @@
                     <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="icon-box">
                       <i class="fa-solid fa-terminal"></i>
-                        <h3>Veniam omnis</h3>
+                        <h3>SEO</h3>
                         <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
                     </div>
                     </div> <!-- End Icon Box -->
@@ -42,7 +42,7 @@
                     <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="icon-box">
                         <i class="fa-solid fa-chart-simple"></i>
-                        <h3>Delares sapiente</h3>
+                        <h3>Graphics Design</h3>
                         <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
                     </div>
                     </div> <!-- End Icon Box -->
@@ -56,6 +56,26 @@
             </section><!-- /About Section -->
 
 </template>
+
+<script lang="ts" setup>
+import { ref, onMounted, onUpdated, computed } from "vue";
+import { V1_HOME_SHOW_SERVICE } from "@/api/const/client";
+import { apiPost, apiGetNoParam, apiGet } from "@/api/index";
+
+
+onMounted(async () => {
+  await loadData();
+});
+const homeService = ref([])
+const loadData = async () => {
+  await apiGetNoParam(V1_HOME_SHOW_SERVICE).then((res) => {
+    let response: any = res;
+    homeService.value = response.data.data;
+    console.log('response response')
+    console.log(response)
+  });
+};
+</script>
 <style lang="css" scoped>
 
 </style>

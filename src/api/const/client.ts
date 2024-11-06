@@ -1,0 +1,1 @@
+export const V1_HOME_SHOW_SERVICE = '/v1/no-auth/home/show'

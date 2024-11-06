@@ -23,7 +23,6 @@ import { onMounted, ref, computed, watch } from 'vue'
 import { GoogleMap, Marker, Polyline } from "vue3-google-map"
 import Utils from '@/utils/Utils'
 import { GOOGLE_API } from '@/config/app'
-import { emit } from 'process';
 const emits = defineEmits(["onClickMap"])
 // interface props {
 //     propsParam?: object
