@@ -5,7 +5,31 @@
 		<template #title>
 			<h6 class="font-semibold m-0">Conversations</h6>
 		</template>
-		<a-list
+		<a-list item-layout="horizontal" :data-source="data">
+			<template #renderItem="{ item }">
+			<a-list-item>
+				<a-list-item-meta>
+				<template #title>
+					<a href="https://www.antdv.com/">{{ item.title }}</a>
+				</template>
+				<template #description>
+					{{ item.code }}
+				</template>
+				<template #avatar>
+					<!-- <a-avatar src="https://joeschmoe.io/api/v1/random" /> -->
+					<a-avatar
+					slot="avatar"
+					:size="48"
+					shape="square"
+					 src="https://joeschmoe.io/api/v1/random"
+					/>
+				</template>
+				</a-list-item-meta>
+			</a-list-item>
+			</template>
+		</a-list>
+
+		<!-- <a-list
 			class="conversations-list"
 			item-layout="horizontal"
 			:split="false"
@@ -16,36 +40,28 @@
 					REPLY
 				</a-button>
 				<a-list-item-meta
-					:title="item.title"
-					:description="item.code"
+					:title="data.title"
+					:description="data.code"
 				>
 					<a-avatar
 					slot="avatar"
 					:size="48"
 					shape="square"
-					:src="item.avatar"
+					:src="data.avatar"
 					/>
 				</a-list-item-meta>
 			</a-list-item>
-		</a-list>
+		</a-list> -->
 	</a-card>
 	<!-- / Conversations Card -->
 
 </template>
 
-<script>
-
-	export default ({
-		props: {
-			data: {
-				type: Array,
-				default: () => [],
-			},
-		},
-		data() {
-			return {
-			}
-		},
-	})
-
+<script lang="ts" setup>
+interface props {
+	data: any;
+}
+const propsData = withDefaults(defineProps<props>(), {
+  data: [],
+});
 </script>

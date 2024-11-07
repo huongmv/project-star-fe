@@ -1,3 +1,8 @@
+<!-- 
+	This is the user profile page, it uses the dashboard layout in: 
+	"./layouts/Dashboard.vue" .
+ -->
+
  <template>
 	<div>
 
@@ -133,31 +138,31 @@ const conversationsData = [
 		id: "1",
 		title: "Sophie B.",
 		code: "Hi! I need more information…",
-		avatar: "images/face-3.jpg",
+		avatar: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 	},
 	{
 		id: "2",
 		title: "Anne Marie",
 		code: "Awesome work, can you…",
-		avatar: "images/face-4.jpg",
+		avatar: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 	},
 	{
 		id: "3",
 		title: "Ivan",
 		code: "About files I can…",
-		avatar: "images/face-5.jpeg",
+		avatar: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 	},
 	{
 		id: "4",
 		title: "Peterson",
 		code: "Have a great afternoon…",
-		avatar: "images/face-6.jpeg",
+		avatar: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 	},
 	{
 		id: "5",
 		title: "Nick Daniel",
 		code: "Hi! I need more information…",
-		avatar: "images/face-2.jpg",
+		avatar: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 	},
 ] ;
 
@@ -167,7 +172,7 @@ const projects = [
 		id: 1,
 		title: "Modern",
 		content: "As Uber works through a huge amount of internal management turmoil.",
-		cover: "images/home-decor-3.jpeg",
+		cover: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 		team: [
 			"images/face-1.jpg",
 			"images/face-4.jpg",
@@ -179,7 +184,7 @@ const projects = [
 		id: 2,
 		title: "Scandinavian",
 		content: "Music is something that every person has his or her own specific opinion about.",
-		cover: "images/home-decor-2.jpeg",
+		cover: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 		team: [
 			"images/face-1.jpg",
 			"images/face-4.jpg",
@@ -191,7 +196,7 @@ const projects = [
 		id: 3,
 		title: "Minimalist",
 		content: "Different people have different taste, and various types of music, Zimbali Resort.",
-		cover: "images/home-decor-1.jpeg",
+		cover: "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
 		team: [
 			"images/face-1.jpg",
 			"images/face-4.jpg",

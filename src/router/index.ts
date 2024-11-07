@@ -5,7 +5,7 @@ import { useCookies } from "vue3-cookies"
 import { SETTING_BREAKCRUMB, USER_LOGINED } from '@/const/ConstCookies'
 import { V1_ROUTER_LIST_ALL } from "@/api/const/router"
 import { apiPost, apiGetNoParam, apiGet } from "@/api/index"
-
+import VueRouter from 'vue-router'
 const _ = require('lodash');
 
 const { cookies } = useCookies()
@@ -182,29 +182,80 @@ console.log(routes)
 // 	}
 // })
 
+// const router = createRouter({
+// 	history: createWebHistory(),
+// 	routes,
+// })
+
+// router.beforeEach((to, from, next) => {
+// 	let isLoginer = cookies.get(USER_LOGINED)
+// 	// let isLoginer = store.getters.isLoggedIn
+// 	store.dispatch('setBreadcrumb', to.meta.breadcrumb)
+// 	console.log('to.meta.layoutClass')
+// 	console.log(to.meta.layoutClass)
+// 	store.dispatch('setLayoutClass', to.meta.layoutClass)
+// 	cookies.set(SETTING_BREAKCRUMB, JSON.stringify(to.meta.breadcrumb));
+// 	if (to.matched.some(record => record.meta.requiresAuth)) {
+// 		if (isLoginer === 'true') {
+// 			next()
+// 			return
+// 		} else {
+// 			next('/')
+// 		}
+// 	} else {
+// 		next()
+// 	}
+// });
+
+function addLayoutToRoute( route: any, parentLayout = "default" )
+{
+	route.meta = route.meta || {} ;
+	route.meta.layout = route.layout || parentLayout ;
+	
+	if( route.children )
+	{
+		route.children = route.children.map( ( childRoute: any ) => addLayoutToRoute( childRoute, route.meta.layout ) ) ;
+	}
+	return route ;
+}
+
+routes = routes.map( ( route: any ) => addLayoutToRoute( route ) ) ;
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
+	scrollBehavior (to, from, savedPosition) {
+		if ( to.hash ) {
+			return {
+				selector: to.hash,
+				behavior: 'smooth',
+			}
+		}
+		return {
+			x: 0,
+			y: 0,
+			behavior: 'smooth',
+		}
+	}
 })
 
-router.beforeEach((to, from, next) => {
-	let isLoginer = cookies.get(USER_LOGINED)
-	// let isLoginer = store.getters.isLoggedIn
-	store.dispatch('setBreadcrumb', to.meta.breadcrumb)
-	console.log('to.meta.layoutClass')
-	console.log(to.meta.layoutClass)
-	store.dispatch('setLayoutClass', to.meta.layoutClass)
-	cookies.set(SETTING_BREAKCRUMB, JSON.stringify(to.meta.breadcrumb));
-	if (to.matched.some(record => record.meta.requiresAuth)) {
-		if (isLoginer === 'true') {
-			next()
-			return
-		} else {
-			next('/')
-		}
-	} else {
-		next()
-	}
-});
+// const router = new VueRouter({
+// 	mode: 'hash',
+// 	base: process.env.BASE_URL,
+// 	routes,
+// 	scrollBehavior (to, from, savedPosition) {
+// 		if ( to.hash ) {
+// 			return {
+// 				selector: to.hash,
+// 				behavior: 'smooth',
+// 			}
+// 		}
+// 		return {
+// 			x: 0,
+// 			y: 0,
+// 			behavior: 'smooth',
+// 		}
+// 	}
+// })
 
 export default router
