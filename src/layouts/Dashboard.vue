@@ -11,7 +11,7 @@
       :class="[
         navbarFixed ? 'navbar-fixed' : '',
         !sidebarCollapsed ? 'has-sidebar' : '',
-        route.meta.layoutClass,
+        route.meta.layoutClass
       ]"
     >
       <!-- Main Sidebar -->

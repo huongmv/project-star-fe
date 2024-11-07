@@ -1,6 +1,6 @@
 <template>
   <!-- Layout Header ( Navbar ) -->
-  <a-layout-header class="">
+  <a-layout-header id="header" class="header d-flex align-items-center sticky-top">
     <div
       class="container-fluid position-relative d-flex align-items-center justify-content-between"
     >
@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import '../../assets/client/css/default.css'
+
 </script>
 
 <style lang="scss" scoped>

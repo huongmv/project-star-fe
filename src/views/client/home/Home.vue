@@ -3,14 +3,14 @@
     <Banner></Banner>
     <Ducimus></Ducimus>
     <Counting></Counting>
-    <Services  v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out"></Services>
+    <Services></Services>
     <Features></Features>
-    <Portfolio></Portfolio>
+    <!-- <Portfolio></Portfolio> -->
     <Pricing></Pricing>
     <Faq></Faq>
-    <Team></Team>
+    <!-- <Team></Team> -->
     <CallToAction></CallToAction>
-    <Testimonials></Testimonials>
+    <!-- <Testimonials></Testimonials> -->
     <RecentPosts></RecentPosts>
     <Contact></Contact>
     <div class="card">

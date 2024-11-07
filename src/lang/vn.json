@@ -45,7 +45,10 @@
         "login": "Đăng nhập",
         "register": "Đăng ký",
         "inputUser": "Nhập số điện thoại",
-        "inputPass": "Nhập mật khẩu"
+        "addUser": "Thêm tài khoản",
+        "editUser": "Sửa tài khoản",
+        "deleteUser": "Xóa tài khoản",
+        "changePass": "Thay đổi mật khẩu"
 
     }
 }
