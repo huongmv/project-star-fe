@@ -25,7 +25,6 @@ await apiGetNoParam(V1_ROUTER_LIST_ALL).then((res) => {
 		}
 		Object.fromEntries(Object.entries(dataRouter).filter(([key, value]) => value !== null));
 		let other = _.omitBy(dataRouter, (v: any) => v == null);
-		console.log(other)
 		routes.push(other)
 	}
 });
@@ -224,7 +223,7 @@ routes = routes.map( ( route: any ) => addLayoutToRoute( route ) ) ;
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
-	scrollBehavior (to, from, savedPosition) {
+	scrollBehavior (to: any, from: any, savedPosition: any) {
 		if ( to.hash ) {
 			return {
 				selector: to.hash,
