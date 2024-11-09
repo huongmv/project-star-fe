@@ -28,7 +28,6 @@ await apiGetNoParam(V1_ROUTER_LIST_ALL).then((res) => {
 		routes.push(other)
 	}
 });
-
 	
 // let routes = JSON.parse(JSON.stringify(routesRes))
 
