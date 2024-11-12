@@ -2,6 +2,13 @@ import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { useCookies } from "vue3-cookies"
 import { ElNotification } from 'element-plus'
+import {
+    RadiusBottomleftOutlined,
+    RadiusBottomrightOutlined,
+    RadiusUpleftOutlined,
+    RadiusUprightOutlined,
+  } from '@ant-design/icons-vue';
+import { NotificationPlacement, notification } from 'ant-design-vue';
 import { BUILDING_ADDRESS, BUILDING_ID, BUILDING_NAME, ROOM_ID, ROOM_NAME, CONTRACT_ID, CONTRACT_NAME, RECEIPT_ID, NEWS_ID,
  TOKEN, USER_LOGINED, USER_ROLES, USER_TYPE, USER_RANK } from '@/const/cookie'
 import {
@@ -226,6 +233,14 @@ const commons = {
             type: 'success',
             offset: 100,
         })
+    },
+    showAntNotification(title: any, msgCode: any, placement: NotificationPlacement) {
+        // 'topLeft' 'topRight' 'bottomLeft' 'bottomRight'
+        notification.open({
+            message: title,
+            description: msgCode,
+            placement,
+          });
     },
     setCategoryId(val: any) {
         localStorage.setItem('categoryId', val)

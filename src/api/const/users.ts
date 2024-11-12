@@ -1,1 +1,1 @@
-export const USER_V1_LOGIN = '/user/login'
+export const USER_V1_LOGIN = '/v1/user/login'

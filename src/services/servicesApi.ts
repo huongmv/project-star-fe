@@ -8,6 +8,7 @@ import { USER, TOKEN, SETTING_BREAKCRUMB, USER_RANK } from '@/const/ConstCookies
 import { CHANGE_COUNTRY } from '@/const/store'
 import { v4 as uuidv4 } from 'uuid'
 import i18n from '../../createI18n'
+import commons from '@/const/Common'
 const app = createApp({})
 app.use(VueAxios, axios)
 app.use(i18n)
@@ -55,6 +56,9 @@ const service = {
         app.axios.interceptors.response.use((response) => {
             return response
         }, async (error) => {
+            console.log(error)
+            let dataRes = error.response.data
+            commons.showAntNotification(dataRes.errors, dataRes.message, 'bottomLeft')
             // store.dispatch('user', false)
             // cookies.remove('user')
             // cookies.remove('isUser')
