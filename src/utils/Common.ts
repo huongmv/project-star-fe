@@ -352,9 +352,6 @@ const commons = {
         localStorage.setItem(USER, 'false');
         localStorage.removeItem(USER_INFORM_LS)
         localStorage.removeItem(USER_LOGON_LS)
-        this.setLcRoultte(0)
-        this.setLcPoint(0)
-        // window.location.reload()
         const { cookies } = useCookies();
         cookies.remove("user");
         cookies.remove(USER_LOGINED);

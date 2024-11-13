@@ -10,8 +10,8 @@
 
 			<!-- Sign In Form Column -->
 			<a-col :span="24" :md="12" :lg="{span: 12, offset: 2}" :xl="{span: 6, offset: 2}" class="col-form">
-				<h1 class="mb-15">Sign In</h1>
-				<h5 class="font-regular text-muted">Enter your email and password to sign in</h5>
+				<!-- <h1 class="mb-15">Sign In</h1>
+				<h5 class="font-regular text-muted">Enter your email and password to sign in</h5> -->
 
 				<!-- Sign In Form -->
 				<!-- <a-form
@@ -79,7 +79,7 @@
 				</a-form> -->
 				<!-- / Sign In Form -->
 				<Login  v-show="loginVal"></Login>
-				<p class="font-semibold text-muted">Don't have an account? <router-link to="/sign-in" class="font-bold text-dark">Sign Up</router-link></p>
+				<!-- <p class="font-semibold text-muted">Don't have an account? <router-link to="/sign-in" class="font-bold text-dark">Sign Up</router-link></p> -->
 			</a-col>
 			<!-- / Sign In Form Column -->
 
@@ -149,6 +149,8 @@ const onFinishFailed = (errorInfo: any) => {
 
 </script> -->
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.sign-in {
+	padding-top: 10%;
+}
 </style>

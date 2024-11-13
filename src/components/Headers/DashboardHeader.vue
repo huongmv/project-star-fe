@@ -22,7 +22,7 @@
           >
             <i class="fas fa-bars"></i>
           </a-button>
-          <User></User>
+          <UserInform></UserInform>
         </a-col>
         <a-col :span="24" :md="1" class="header-control">
           <SwitchLang></SwitchLang>
@@ -40,6 +40,7 @@ import { useRouter, useRoute } from "vue-router";
 import SwitchLang from "@/components/element/lang/SwitchLang.vue";
 import Breadcrumb from "@/components/breadcrumb/Breadcrumb.vue";
 import User from "@/components/user/User.vue";
+import UserInform from "@/layouts/dashboard/nav/user/UserInfor.vue";
 const route = useRoute();
 interface props {
   navbarFixed: boolean;

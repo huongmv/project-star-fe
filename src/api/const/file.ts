@@ -1,0 +1,1 @@
+export const UPLOAD_FILE_AVATAR = '/file/avartar/uploads'

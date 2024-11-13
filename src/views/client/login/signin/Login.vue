@@ -164,8 +164,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       };
       await apiPost(USER_V1_LOGIN, dataRequest).then((res) => {
         let response: any = res;
-        if (response.data.httpStatus == 200) {
+        if (response.data.statusCode == 200) {
           let dataLogin = response.data.data;
+          console.log(dataLogin)
           checkUser(dataLogin);
         } else {
           commons.showNotificationError(response.data.errorMessage);
@@ -176,27 +177,30 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 };
 
 const checkUser = (dataLogin: any) => {
-  commons.setLoadLogin();
+  // commons.setLoadLogin();
   commons.setUserInform(dataLogin);
-  cookies.set(TOKEN, JSON.stringify(dataLogin.accessToken));
-  cookies.set(FULL_NAME, JSON.stringify(dataLogin.name));
-  cookies.set(USER, JSON.stringify(dataLogin));
-  cookies.set("status", JSON.stringify(dataLogin.status));
-  cookies.set(USER_LOGINED, "true");
-  store.dispatch("setLoggedIn", true);
-  localStorage.setItem(USER, store.getters.isLoggedIn);
-  let checkLoadLib = localStorage.getItem(LOAD_LIB_JS);
+  // cookies.set(TOKEN, JSON.stringify(dataLogin.accessToken));
+  // cookies.set(FULL_NAME, JSON.stringify(dataLogin.name));
+  // cookies.set(USER, JSON.stringify(dataLogin));
+  // cookies.set("status", JSON.stringify(dataLogin.status));
+  // cookies.set(USER_LOGINED, "true");
+  // store.dispatch("setLoggedIn", true);
+  // localStorage.setItem(USER, store.getters.isLoggedIn);
+  // let checkLoadLib = localStorage.getItem(LOAD_LIB_JS);
   let isLoginer = commons.getLcUserIsLogin();
-  checklogin();
-  window.location.reload();
-  if (checkLoadLib != "1") {
-    localStorage.setItem(LOAD_LIB_JS, "1");
-    // router.push({ path: "./" });
-    goBack();
-  } else {
-    // router.push({ path: "./" });
-    goBack();
-  }
+    if (isLoginer) {
+    router.push({ path: "./" });
+  } 
+  // checklogin();
+  // window.location.reload();
+  // if (checkLoadLib != "1") {
+  //   localStorage.setItem(LOAD_LIB_JS, "1");
+  //   // router.push({ path: "./" });
+  //   goBack();
+  // } else {
+  //   // router.push({ path: "./" });
+  //   goBack();
+  // }
 };
 
 const registerForm = () => {
