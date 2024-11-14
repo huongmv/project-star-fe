@@ -59,4 +59,7 @@ const propsData = withDefaults(defineProps<props>(), {
 .operation-content {
   font-size: 1rem;
 }
+.operation-content span i{
+  color: var(--el-color-primary);
+}
 </style>

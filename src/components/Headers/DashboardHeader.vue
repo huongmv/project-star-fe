@@ -5,14 +5,7 @@
         <a-col :span="24" :md="6">
           <Breadcrumb></Breadcrumb>
         </a-col>
-        <a-col :span="24" :md="17" class="header-control">
-          <a-button
-            type="link"
-            ref="secondarySidebarTriggerBtn"
-            @click="$emit('toggleSettingsDrawer', true)"
-          >
-            <i class="fas fa-cog"></i>
-          </a-button>
+        <a-col :span="24" :md="18" class="header-control">
           <a-button
             type="link"
             class="sidebar-toggler"
@@ -22,11 +15,19 @@
           >
             <i class="fas fa-bars"></i>
           </a-button>
+          <a-button  type="link"><SwitchLang></SwitchLang></a-button>
+          <a-button
+            type="link"
+            ref="secondarySidebarTriggerBtn"
+            @click="$emit('toggleSettingsDrawer', true)"
+          >
+            <i class="fas fa-cog"></i>
+          </a-button>
           <UserInform></UserInform>
         </a-col>
-        <a-col :span="24" :md="1" class="header-control">
+        <!-- <a-col :span="24" :md="1" class="header-control">
           <SwitchLang></SwitchLang>
-        </a-col>
+        </a-col> -->
         <!-- / Header Control Column -->
       </a-row>
     </a-layout-header>
