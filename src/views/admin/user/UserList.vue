@@ -5,14 +5,9 @@
     <div class="mt-2 mb-2">
       <UserSearch @userSearch="userSearch"></UserSearch>
     </div>
-    <TableComponent apiCode="pol-back1" cTable="table-version1" :condition="searchValue">
+    <TableComponent apiCode="users-list" cTable="table-version1" :condition="searchValue">
       <template #action="action">
         <div class="thao-tac">
-          <!-- <DotTable>
-            <template #content>
-              {{ JSON.parse(JSON.stringify(action)).action }}
-            </template>
-          </DotTable> -->
           <Operation
               :face-data="action"
               :face-menu="faceMenu"
@@ -23,12 +18,38 @@
             ></Operation>
         </div>
       </template>
+      <template #roleId="roleId">
+        <div class="thao-tac">
+          {{ dataTest(roleId.action)}}
+        </div>
+      </template>
+      <template #rankId="rankId">
+        <div class="thao-tac">
+          {{ dataTest(rankId.action)}}
+        </div>
+      </template>
       <template #mobile="action">
         <div class="mobile-v1">
           <TableMobile :data="action.action"></TableMobile>
         </div>
       </template>
     </TableComponent>
+    <PopupShow :show-popup="userCreateShow" @close-popup="userCreateShow = !userCreateShow" @submit-popup="userSubmit">
+      <template #content>
+        <CreateUser></CreateUser>
+      </template>
+    </PopupShow>
+    <PopupShow :show-popup="userEditShow" @close-popup="userEditShow = !userEditShow" @submit-popup="userEdit">
+      <template #content>
+        <EditUser></EditUser>
+      </template>
+    </PopupShow>
+    <PopupShow :show-popup="userDeleteShow" @close-popup="userDeleteShow = !userDeleteShow" @submit-popup="userDelete"></PopupShow>
+    <PopupShow :show-popup="userChangeShow" @close-popup="userChangeShow = !userChangeShow" @submit-popup="userChange">
+      <template #content>
+        <UserChangePass></UserChangePass>
+      </template>
+    </PopupShow>
   </div>
 </template>
 <script lang="ts" setup>
@@ -38,7 +59,16 @@ import TableMobile from "@/components/ant/table/TableMobile.vue";
 import DotTable from "@/components/ant/action/DotAction.vue";
 import UserSearch from "@/components/ant/search/user/UserSearch.vue";
 import Operation from  "@/components/ant/action/Operation.vue";
+import PopupShow from '@/components/ant/modal/PopupShow.vue'
+import CreateUser from "./component/CreateUser.vue";
+import EditUser from "./component/EditUser.vue";
+import UserChangePass from "@/components/user/form/UserChangePass.vue";
+
 const dataEncrypt = ref("");
+const userCreateShow = ref(false)
+const userEditShow = ref(false)
+const userDeleteShow = ref(false)
+const userChangeShow = ref(false)
 const xScroll = ref({ x: "calc(700px + 50%)", y: 340 });
 const faceMenu = reactive([
   {
@@ -77,24 +107,55 @@ const userSearch = (val: any) => {
 } 
 
 const addUser = (val: any) => {
+  userCreateShow.value = true
   console.log('addUser')
   console.log(val)
 } 
 
 const editUser = (val: any) => {
+  userEditShow.value = true
   console.log('editUser')
   console.log(val)
 } 
 
 const deleteUser = (val: any) => {
+  userDeleteShow.value = true
   console.log('deleteUser')
   console.log(val)
 } 
 
 const changePass = (val: any) => {
+  userChangeShow.value = true
   console.log('changePass')
   console.log(val)
 } 
 
+const userSubmit = () => {
+  console.log('userSubmit')
+} 
+
+const userEdit = () => {
+  console.log('userEdit')
+} 
+
+const userDelete = () => {
+  console.log('userDelete')
+} 
+
+const userChange = () => {
+  console.log('userChange')
+} 
+
+const dataTest = (val: any) => {
+  if(val == '1') {
+    return "123"
+  }
+  if(val == '2') {
+    return "456"
+  }
+  if(val == '0') {
+    return "789999999999999"
+  }
+}
 </script>
 <style scoped></style>

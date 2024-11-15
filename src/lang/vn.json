@@ -35,7 +35,7 @@
         "000001": ""
     },
     "text": {
-        "userName": "Số điện thoại",
+        "userName": "Tài khoản",
         "password": "Mật khẩu",
         "phone": "Số điện thoại",
         "validPassword": "Tối thiểu 8 ký tự",
@@ -48,7 +48,17 @@
         "addUser": "Thêm tài khoản",
         "editUser": "Sửa tài khoản",
         "deleteUser": "Xóa tài khoản",
-        "changePass": "Thay đổi mật khẩu"
+        "changePass": "Thay đổi mật khẩu",
+        "name": "Họ và tên",
+        "stt": "Số TT",
+        "email": "Email",
+        "gender": "Giới tính",
+        "roleId": "Quyền hạn",
+        "rankId": "Thứ hạng",
+        "action": "Thao tác",
+        "birthday": "Ngày sinh",
+        "cancel": "Hủy",
+        "ok": "Đồng ý"
 
     }
 }

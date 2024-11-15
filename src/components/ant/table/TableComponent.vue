@@ -46,7 +46,14 @@
           </a>
         </span> -->
           </template>
+          <template v-if="column.key === 'roleId'">
+            <slot name="roleId" :action="record.roleId"></slot>
+          </template>
+          <template v-if="column.key === 'rankId'">
+            <slot name="rankId" :action="record.rankId"></slot>
+          </template>
         </template>
+        
       </a-table>
       <Pagination
         :current="current"
@@ -181,27 +188,47 @@ function onChange(pagination:any, filters:any, sorter:any, extra:any) {
   changeSort(sorter);
 }
 const changeSort = async (sorter:any) => {
-  let order = JSON.parse(JSON.stringify(sorter));
-  inData.value.sort((a, b) => {
-    if (order.order == "descend") {
-      if (a[order.field] > b[order.field]) {
-        return 1;
-      } else if (a[order.field] < b[order.field]) {
-        return -1;
-      } else {
-        return 0;
-      }
-    } else {
-      if (a[order.field] < b[order.field]) {
-        return 1;
-      } else if (a[order.field] > b[order.field]) {
-        return -1;
-      } else {
-        return 0;
-      }
-    }
-  });
+  // let order = JSON.parse(JSON.stringify(sorter));
+  console.log(sorter)
+  // inData.value.sort((a, b) => {
+  //   if (order.order == "descend") {
+  //     if (a[order.field] > b[order.field]) {
+  //       return 1;
+  //     } else if (a[order.field] < b[order.field]) {
+  //       return -1;
+  //     } else {
+  //       return 0;
+  //     }
+  //   } else {
+  //     if (a[order.field] < b[order.field]) {
+  //       return 1;
+  //     } else if (a[order.field] > b[order.field]) {
+  //       return -1;
+  //     } else {
+  //       return 0;
+  //     }
+  //   }
+  // });
 };
+
+function stringify(obj:any) {
+  let cache: any = [];
+  let str = JSON.stringify(obj, function(key, value) {
+    if (typeof value === "object" && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        // Circular reference found, discard key
+        return;
+      }
+      // Store value in our collection
+      cache.push(value);
+    }
+    return value;
+  });
+  cache = null; // reset the cache
+  console.log(str)
+  return str;
+}
+
 const defineParam = computed(() => {
     return define.param
 })

@@ -9,33 +9,6 @@
               <span><i :class="item.icon"></i></span>{{ $t(item.title) }}
             </div>
           </a-menu-item>
-          <!-- <a-menu-item>
-            <div class="operation-content" @click="sendOpt">
-              <span><i class="fa-solid fa-comment-sms"></i></span>Gửi mã xác
-              thực
-            </div>
-          </a-menu-item>
-          <a-menu-item>
-            <div class="operation-content" @click="editItems">
-              <span><i class="fa-solid fa-pen-to-square"></i></span>Sửa thông
-              tin
-            </div>
-          </a-menu-item>
-          <a-menu-item>
-            <div class="operation-content" @click="userLock">
-              <span><i class="fa-solid fa-lock"></i></span>Khóa tài khoản
-            </div>
-          </a-menu-item>
-          <a-menu-item>
-            <div class="operation-content" @click="changeNewPass">
-              <span><i class="fa-solid fa-cash-register"></i></span>Đổi mật khẩu
-            </div>
-          </a-menu-item>
-          <a-menu-item>
-            <div class="operation-content" @click="deleteItems">
-              <span><i class="fa-regular fa-trash-can"></i></span>Xóa tài khoản
-            </div>
-          </a-menu-item> -->
         </a-menu>
       </template>
     </a-dropdown>
